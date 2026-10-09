@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#163b2c">
+  <meta name="description" content="Explore nature with GreenQuest AI, your outdoor adventure companion.">
+  <title>GreenQuest AI — Touch Grass</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="brand"><span class="brand-mark">✳</span> GreenQuest <span class="ai-label">AI</span></a>
+    <div class="nav-right">
+      <span class="streak">🔥 <b id="streak">0</b> day streak</span>
+      <div class="avatar">G</div>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">YOUR DAILY DOSE OF OUTDOORS</span>
+        <h1>Less screen.<br>More <span>green.</span></h1>
+        <p>Small adventures. Fresh air. A whole world waiting outside your door.</p>
+        <button class="btn btn-lime" id="heroGenerate">✦ Find my adventure</button>
+        <p class="ai-status" id="aiStatus" aria-live="polite">🌱 Your next adventure awaits.</p>
+      </div>
+      <div class="landscape" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div class="peak peak-one"></div>
+        <div class="peak peak-two"></div>
+        <div class="hill hill-one"></div>
+        <div class="hill hill-two"></div>
+        <span class="land-leaf leaf-a">✳</span>
+        <span class="land-leaf leaf-b">❋</span>
+      </div>
+      <div class="hero-bottom">GO OUTSIDE. GET CURIOUS. COME BACK HAPPIER.</div>
+    </section>
+
+    <section class="stats">
+      <article class="stat">
+        <span class="stat-icon mint">◷</span>
+        <div><small>OUTDOOR TIME</small><strong id="minutes">0 min</strong></div>
+      </article>
+      <article class="stat">
+        <span class="stat-icon peach">✧</span>
+        <div><small>TOTAL EXPERIENCE</small><strong id="xp">0 XP</strong></div>
+      </article>
+      <article class="stat">
+        <span class="stat-icon lilac">♛</span>
+        <div><small>MISSIONS COMPLETE</small><strong id="completed">0</strong></div>
+      </article>
+    </section>
+
+    <div class="section-title">
+      <div>
+        <span class="eyebrow dark">YOUR NEXT LITTLE ADVENTURE</span>
+        <h2>Step into the wild</h2>
+      </div>
+      <span class="tag">🌎 Touch Grass Challenge</span>
+    </div>
+
+    <section class="content-grid">
+      <article class="mission-card">
+        <div class="mission-header">
+          <span class="category" id="category">✳ NATURE EXPLORER</span>
+          <span class="difficulty" id="difficulty">Easy</span>
+        </div>
+
+        <div class="mission-art" id="missionEmoji">🌿</div>
+        <h3 id="missionTitle">The Tiny Explorer</h3>
+        <p class="mission-description" id="missionDescription">
+          Step outside and discover three different leaf shapes. Notice their textures, patterns, and tiny details.
+        </p>
+
+        <div class="mission-details">
+          <span>◷ <b id="missionDuration">15</b> minutes</span>
+          <span>✧ <b id="missionReward">50</b> XP</span>
+        </div>
+
+        <div class="separator"></div>
+        <h4>Your field checklist</h4>
+        <label class="check-item"><input type="checkbox" class="mission-check"><span>Find a safe outdoor spot</span></label>
+        <label class="check-item"><input type="checkbox" class="mission-check"><span>Notice something new</span></label>
+        <label class="check-item"><input type="checkbox" class="mission-check"><span>Pause and enjoy the moment</span></label>
+
+        <div class="timer">
+          <div><small>YOUR ADVENTURE TIMER</small><strong id="timer">15:00</strong></div>
+          <button id="timerBtn" class="btn btn-outline">▶ Start</button>
+        </div>
+        <button id="completeBtn" class="btn btn-primary full">✓ Complete mission</button>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </article>
+
+      <aside class="sidebar">
+        <article class="panel">
+          <span class="eyebrow dark">MADE FOR YOUR MOOD</span>
+          <h3>Pick your adventure</h3>
+          <p class="muted">Your AI companion will tailor a mission just for you.</p>
+
+          <label for="activity">What sounds good?</label>
+          <select id="activity">
+            <option value="nature exploration">🌿 Nature exploration</option>
+            <option value="walking and mindfulness">🚶 Walking & mindfulness</option>
+            <option value="birdwatching">🐦 Birdwatching</option>
+            <option value="gardening">🌻 Gardening</option>
+            <option value="outdoor fitness">🏃 Outdoor fitness</option>
+            <option value="nature photography">📷 Nature photography</option>
+          </select>
+
+          <label for="duration">How much time do you have?</label>
+          <select id="duration">
+            <option value="5">5 minutes</option>
+            <option value="15" selected>15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="60">60 minutes</option>
+          </select>
+
+          <label for="difficultySelect">Adventure level</label>
+          <select id="difficultySelect">
+            <option value="Easy">Easy</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Adventurous">Adventurous</option>
+          </select>
+
+          <button class="btn btn-primary full" id="generateBtn">✦ Generate with AI</button>
+          <p class="model-note">Open model · Runs in your browser</p>
+        </article>
+
+        <article class="fact-card">
+          <span class="fact-icon">❝</span>
+          <p id="natureFact">Nature is full of details you only notice when you slow down.</p>
+          <small>A MOMENT OF WONDER</small>
+        </article>
+
+        <article class="panel progress-panel">
+          <div class="progress-heading"><h3>Your growth</h3><span id="level">Level 1</span></div>
+          <div class="progress-track"><div id="progressBar"></div></div>
+          <p class="muted" id="progressText">0 / 100 XP to your next level</p>
+          <div class="badges">
+            <span id="badge1" title="First mission">🌱</span>
+            <span id="badge2" title="Earn 100 XP">🌳</span>
+            <span id="badge3" title="Spend 60 minutes outdoors">🦋</span>
+            <span id="badge4" title="Complete five missions">🏕️</span>
+          </div>
+          <small class="badge-caption">Keep exploring to unlock badges.</small>
+        </article>
+      </aside>
+    </section>
+
+    <section class="offline-banner">
+      <span>📵</span>
+      <div>
+        <h3>The best part happens offline.</h3>
+        <p>Choose a mission, put your phone away, and reconnect with the world around you.</p>
+      </div>
+    </section>
+
+    <footer>
+      <a href="#" class="brand footer-brand">✳ GreenQuest AI</a>
+      <span>Made for the planet, powered by open innovation.</span>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
